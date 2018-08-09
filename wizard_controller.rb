@@ -13,3 +13,9 @@ end
 get '/hogwarts/wizards/new' do
   erb(:new)
 end
+
+post '/hogwarts/wizards' do
+  @students = Student.new(params)
+  @students.save()
+  erb(:create)
+end
