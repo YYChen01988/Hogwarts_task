@@ -3,6 +3,7 @@ require('sinatra/contrib/all')
 require('pry-byebug')
 
 require_relative('models/student.rb')
+require_relative('models/house.rb')
 also_reload("models/*")
 
 get '/hogwarts/wizards' do
@@ -11,6 +12,7 @@ get '/hogwarts/wizards' do
 end
 
 get '/hogwarts/wizards/new' do
+  @houses = House.all()
   erb(:new)
 end
 

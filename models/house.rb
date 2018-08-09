@@ -22,6 +22,11 @@ class House
     return result
   end
 
+  def self.delete_all()
+    sql = "DELETE FROM houses"
+    SqlRunner.run(sql)
+  end
+
   def self.find_by_id(id)
     sql = " SELECT * FROM houses WHERE id=$1"
     values = [id]

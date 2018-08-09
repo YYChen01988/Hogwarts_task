@@ -4,6 +4,10 @@ require_relative("models/house.rb")
 
 require ("pry")
 
+Student.delete_all()
+House.delete_all()
+
+
 slytherin = House.new({
 "name" =>"Slytherin"
 })
@@ -31,6 +35,15 @@ student1 = Student.new({
 "age" => 30
 })
 student1.save()
+
+student2 = Student.new({
+"first_name" => "Tina",
+"last_name" => "Turner",
+"house_id" => hufflepuff.id,
+"age" => 56
+})
+student2.save()
+
 
 binding.pry
 nil
