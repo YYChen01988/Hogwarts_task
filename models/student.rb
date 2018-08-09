@@ -20,4 +20,18 @@ class Student
     @id = result["id"].to_i
   end
 
+  def self.all()
+    sql = "SELECT * FROM students"
+    students = SqlRunner.run(sql)
+    result = students.map{|student| Student.new(student)}
+    return result
+  end
+
+  def self.find_by_id(id)
+    sql = " SELECT * FROM students WHERE id=$1"
+    values = [id]
+    result = SqlRunner.run(sql, values).first
+    return Student.new(result)
+  end
+
 end
